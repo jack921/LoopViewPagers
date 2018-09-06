@@ -8,11 +8,14 @@ import android.animation.PropertyValuesHolder;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.jack.loopviewpager.transformer.AccordionTransformer;
+import com.jack.loopviewpagers.IndicatiorCanvasView;
 import com.jack.loopviewpagers.LoopViewPager;
 import com.jack.loopviewpagers.interfaces.IndicatorAnimator;
+import com.jack.loopviewpagers.interfaces.OnPageClickListener;
 import com.jack.loopviewpagers.interfaces.UpdateImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,8 +75,7 @@ public class MainActivity extends AppCompatActivity {
         data.add(image);data.add(image);
         data.add(image);data.add(image);
         viewPager.setAnimation(true,new AccordionTransformer());
-//        viewPager.setIndicatorType(IndicatiorCanvasView.class);
-
+        viewPager.setIndicatorType(IndicatiorCanvasView.class);
         viewPager.setIndicatorAnimator(new IndicatorAnimator() {
             @Override
             public void indicatorView(View view) {

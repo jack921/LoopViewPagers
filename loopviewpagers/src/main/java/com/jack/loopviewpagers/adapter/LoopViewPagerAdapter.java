@@ -8,6 +8,7 @@ import android.view.ViewParent;
 
 
 import com.jack.loopviewpagers.interfaces.CreateView;
+import com.jack.loopviewpagers.interfaces.OnPageClickListener;
 
 import java.util.List;
 
@@ -16,11 +17,14 @@ import androidx.viewpager.widget.PagerAdapter;
 
 public class LoopViewPagerAdapter<T> extends PagerAdapter {
     private SparseArray<View> views = new SparseArray();
+    private OnPageClickListener onClickListener;
     private CreateView mCreateView;
     private Context context;
     private List<T> mData;
 
-    public LoopViewPagerAdapter(Context context,List<T> list,CreateView createView){
+    public LoopViewPagerAdapter(Context context, List<T> list, CreateView createView,
+                                OnPageClickListener onClickListener){
+        this.onClickListener=onClickListener;
         this.mCreateView=createView;
         this.context=context;
         this.mData=list;
@@ -33,6 +37,15 @@ public class LoopViewPagerAdapter<T> extends PagerAdapter {
             return new View(context);
         }
         View view=mCreateView.createView(position);
+        final int finalPosition = position;
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               if(onClickListener!=null){
+                   onClickListener.onClick(view, finalPosition);
+               }
+            }
+        });
         views.put(position,view);
         ViewParent vp = view.getParent();
         if (vp != null) {

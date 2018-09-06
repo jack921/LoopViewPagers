@@ -15,6 +15,7 @@ import com.jack.loopviewpagers.adapter.LoopFragmentPagerAdapter;
 import com.jack.loopviewpagers.adapter.LoopViewPagerAdapter;
 import com.jack.loopviewpagers.interfaces.CreateView;
 import com.jack.loopviewpagers.interfaces.IndicatorAnimator;
+import com.jack.loopviewpagers.interfaces.OnPageClickListener;
 import com.jack.loopviewpagers.interfaces.UpdateImage;
 import com.jack.loopviewpagers.util.DensityUtils;
 import com.jack.loopviewpagers.util.LoopViewPagerScroller;
@@ -38,6 +39,7 @@ public class LoopViewPager<T> extends FrameLayout {
     private IndicatiorCanvasView indicatorCanvasView;
     private IndicatorView indicatorView;
     private ViewPager.OnPageChangeListener onPageChangeListener;
+    private OnPageClickListener onClickListener;
     private IndicatorAnimator indicatorAnimator;
 
     private ViewPager viewPager;
@@ -94,6 +96,10 @@ public class LoopViewPager<T> extends FrameLayout {
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener l){
         this.onPageChangeListener=l;
+    }
+
+    public void setOnPageClickListener(OnPageClickListener l){
+        this.onClickListener=l;
     }
 
     public void setIndicatorAnimator(IndicatorAnimator l){
@@ -177,7 +183,7 @@ public class LoopViewPager<T> extends FrameLayout {
     public void setData(Context context, List<T> mData, CreateView mCreatView){
         viewNumber=mData.size();
         initIndicator(getContext());
-        LoopViewPagerAdapter loopViewPagerAdapter=new LoopViewPagerAdapter(context,mData,mCreatView);
+        LoopViewPagerAdapter loopViewPagerAdapter=new LoopViewPagerAdapter(context,mData,mCreatView,onClickListener);
         viewPager.setAdapter(loopViewPagerAdapter);
     }
 
@@ -197,7 +203,7 @@ public class LoopViewPager<T> extends FrameLayout {
             }
             @Override
             public void deleteView(int position){}
-        });
+        },onClickListener);
         viewPager.setAdapter(loopViewPagerAdapter);
     }
 
