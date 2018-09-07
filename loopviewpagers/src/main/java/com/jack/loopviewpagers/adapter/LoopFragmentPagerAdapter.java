@@ -1,9 +1,7 @@
 package com.jack.loopviewpagers.adapter;
 
 import android.view.ViewGroup;
-
 import java.util.List;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -34,6 +32,5 @@ public class LoopFragmentPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return Integer.MAX_VALUE;
     }
-
 
 }

@@ -68,6 +68,4 @@ public class IndicatorView extends LinearLayout {
             indicatorAnimator.indicatorView(imageView);
         }
     }
-
-
 }

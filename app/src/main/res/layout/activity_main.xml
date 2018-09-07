@@ -9,10 +9,10 @@
     <com.jack.loopviewpagers.LoopViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="220dp"
         app:loop_now_indicator_img="@mipmap/ic_origin"
         app:loop_indicator_img="@mipmap/ic_un_origin"
-        app:loop_gravity="right">
+        app:loop_gravity="center">
     </com.jack.loopviewpagers.LoopViewPager>
 
 </RelativeLayout>

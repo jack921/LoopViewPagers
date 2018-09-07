@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-
 import com.jack.loopviewpagers.adapter.LoopFragmentPagerAdapter;
 import com.jack.loopviewpagers.adapter.LoopViewPagerAdapter;
 import com.jack.loopviewpagers.interfaces.CreateView;

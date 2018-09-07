@@ -1,29 +1,22 @@
 package com.jack.loopviewpagers.adapter;
 
 import android.content.Context;
-import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-
-
 import com.jack.loopviewpagers.interfaces.CreateView;
 import com.jack.loopviewpagers.interfaces.OnPageClickListener;
-
 import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 public class LoopViewPagerAdapter<T> extends PagerAdapter {
-    private SparseArray<View> views = new SparseArray();
     private OnPageClickListener onClickListener;
     private CreateView mCreateView;
     private Context context;
     private List<T> mData;
 
-    public LoopViewPagerAdapter(Context context, List<T> list, CreateView createView,
-                                OnPageClickListener onClickListener){
+    public LoopViewPagerAdapter(Context context, List<T> list, CreateView createView, OnPageClickListener onClickListener){
         this.onClickListener=onClickListener;
         this.mCreateView=createView;
         this.context=context;
@@ -46,7 +39,6 @@ public class LoopViewPagerAdapter<T> extends PagerAdapter {
                }
             }
         });
-        views.put(position,view);
         ViewParent vp = view.getParent();
         if (vp != null) {
             ViewGroup parent = (ViewGroup)vp;
@@ -59,9 +51,8 @@ public class LoopViewPagerAdapter<T> extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView(views.get(position));
-        views.remove(position);
-        mCreateView.deleteView(position);
+          container.removeView((View)object);
+          mCreateView.deleteView(position);
     }
 
     @Override
