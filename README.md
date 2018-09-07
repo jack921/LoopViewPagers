@@ -1,6 +1,27 @@
 
 ## LoopViewPager
 
+>### 添加引用
+
+
+
+```
+//项目根目录 gradle
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+
+//app目录  gradle
+dependencies {
+	 implementation 'com.github.jack921:LoopViewPagers:1.0'
+}
+```
+
+
+
 ---
 
 >### 属性
@@ -56,7 +77,7 @@ viewPager.setData(getSupportFragmentManager(),listFragment);
 ```
 ###### 效果图：
 
-![GIF.gif](https://upload-images.jianshu.io/upload_images/925576-a7efd6b3bc8cb2e8.gif?imageMogr2/auto-orient/strip)
+![fragment.gif](https://upload-images.jianshu.io/upload_images/925576-a7efd6b3bc8cb2e8.gif?imageMogr2/auto-orient/strip)
 
 
 ---
