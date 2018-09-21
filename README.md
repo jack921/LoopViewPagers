@@ -16,7 +16,7 @@ allprojects {
 
 //app目录  gradle
 dependencies {
-	 implementation 'com.github.jack921:LoopViewPagers:1.1'
+	 implementation 'com.github.jack921:LoopViewPagers:1.0'
 }
 ```
 
@@ -44,7 +44,6 @@ startBanner() | 开始轮播
 startBanner(long delayTime) | 开始轮播同时设置滚动的时间间隔
 setAnimation() | 切换过度动画
 getViewPager | 得到原生的ViewPage
-setData(FragmentManager fragmentManager, List<Fragment> listFragment) |  为LoopViewPager的fragment轮播设值
 setData(Context context, List<T> mData, CreateView mCreatView) | 为LoopViewPager的View轮播设值, CreateView为View创建，刷新，删除的接口
 setData(final Context context, List<T> mData,final UpdateImage updateImage) | 为LoopViewPager的简单图片轮播设值，UpdateImage返回ImageView和对应数据以便你用图片加载框架加载
 setOnPageChangeListener() | 设置viewpager滑动监听
@@ -57,27 +56,6 @@ setIndicatorAnimator() | 当是IndicatorView指示器时，返回选择点的Vie
 
 
 ---
-
-
->#### Fragment无限轮播demo
-
-```
-public List<Fragment> listFragment=new ArrayList<>();
-ViewPageFragment viewPageFragment1=new ViewPageFragment();
-ViewPageFragment viewPageFragment2=new ViewPageFragment();
-ViewPageFragment viewPageFragment3=new ViewPageFragment();
-ViewPageFragment viewPageFragment4=new ViewPageFragment();
-ViewPageFragment viewPageFragment5=new ViewPageFragment();
-ViewPageFragment viewPageFragment6=new ViewPageFragment();
-ViewPageFragment viewPageFragment7=new ViewPageFragment();
-ViewPageFragment viewPageFragment8=new ViewPageFragment();
-
-viewPager.setData(getSupportFragmentManager(),listFragment);
-
-```
-###### 效果图：
-
-![fragment.gif](https://upload-images.jianshu.io/upload_images/925576-a7efd6b3bc8cb2e8.gif?imageMogr2/auto-orient/strip)
 
 
 ---
