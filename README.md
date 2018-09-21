@@ -54,9 +54,9 @@ showIndicator(boolean show) | 是否显示指示器
 setIndicatorGravity() | 设置指示器的位置(IndicatorGravity.CENTER,IndicatorGravity.LEFT,IndicatorGravity.RIGHT)
 setIndicatorAnimator() | 当是IndicatorView指示器时，返回选择点的View,以便你那这个View进行各种动画操作
 
-
 ---
 
+注：setData()方法最好放在最后面执行
 
 ---
 
